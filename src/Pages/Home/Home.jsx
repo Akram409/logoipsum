@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar/Navbar";
+import Company from "../Company/Company";
 const Home = () => {
   return (
     <div>
@@ -10,6 +11,10 @@ const Home = () => {
       <div className="flex-shrink-0 HomeBanner">
         <Navbar />
         <Banner />
+      </div>
+      <div>
+      <Company />
+
       </div>
     </div>
   );

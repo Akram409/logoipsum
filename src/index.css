@@ -18,6 +18,9 @@
   filter: blur(250px);
 }
 
+.CompanyCardBG{
+  fill: var(--fs-search-banner-blue, #DDF3FF);
+}
 
 
 .textGradient {

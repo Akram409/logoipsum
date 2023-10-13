@@ -1,0 +1,21 @@
+.shape{
+    background: var(--fs-search-surface-bg, #FAFBFC);
+    fill: var(--fs-search-banner-blue, #DDF3FF);
+}
+
+.Indicate{
+    border-radius: 10px;
+background: var(--gradient-border-outline, linear-gradient(96deg, #0076CE 0%, #9400D3 100%));
+}
+
+.box{
+    border-radius: 20px;
+background: var(--fs-search-card-bg, #FFF);
+box-shadow: 2px 4px 15px 0px rgba(133, 133, 167, 0.25);
+}
+
+.cardInfo{
+    border-radius: 10px;
+background: var(--fs-search-table-bg, #F4F4F4);
+}
+

@@ -18,7 +18,7 @@ const Banner = () => {
               businesses seeking CA’s for compliance support
             </p>
             <div className="search flex justify-between items-center mt-[60px]">
-              <input type="text" placeholder="Type here" className="input" />
+              <input type="text" placeholder="Search here" className="input w-full py-[35px]" />
               <button className="bg-[#0076CE] text-white py-[27px] px-[66px] rounded-lg">
                 Search
               </button>
@@ -38,10 +38,16 @@ const Banner = () => {
         </div>
       </div>
       <div className="pt-96">
-        <svg  xmlns="http://www.w3.org/2000/svg" width="1536" height="210" viewBox="0 0 1536 210" fill="none">
-  <path d="M0 210H1536V80.0669V0L0 192.622V210Z" fill="#FAFBFC"/>
-</svg>
-        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1536"
+          height="210"
+          viewBox="0 0 1536 210"
+          fill="none"
+        >
+          <path d="M0 210H1536V80.0669V0L0 192.622V210Z" fill="#FAFBFC" />
+        </svg>
+      </div>
     </div>
   );
 };
