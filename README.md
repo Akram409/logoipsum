@@ -1,8 +1,12 @@
-# React + Vite
+# Logoisum
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project, Logoisum, is a tool that generates placeholder logos for design projects. It leverages a custom API endpoint to fetch logo details and utilizes JSONServer for hosting.
 
-Currently, two official plugins are available:
+## Live Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can access the live version of Logoisum at the following link:
+[https://logoipsum-3e472.web.app/](https://logoipsum-3e472.web.app/)
+
+## API Endpoint
+
+Logoisum's API endpoint for retrieving logo details is as follows:
