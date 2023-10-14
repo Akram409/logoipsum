@@ -16,7 +16,7 @@ const EmployDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3001/details");
+        const response = await fetch("https://logoipsum-j6tp.onrender.com/details");
         const datas = await response.json();
         setAllData(datas.slice(0, 3));
         const singleData = datas.find((item) => item.id === parseInt(id));
