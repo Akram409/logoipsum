@@ -25,6 +25,8 @@ export default {
           warning: "#e7b223",
 
           error: "#df2a45",
+          
+          main: "#0076CE",
         },
       },
     ],

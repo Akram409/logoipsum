@@ -1,0 +1,15 @@
+.detailBox1 {
+  border-radius: 20px;
+  background: var(--fs-search-card-bg, #fff);
+  box-shadow: 2px 4px 15px 0px rgba(133, 133, 167, 0.25);
+}
+
+.carouselBox{
+    border-radius: 20px;
+background: var(--fs-search-card-bg, #FFF);
+box-shadow: 2px 4px 15px 0px rgba(133, 133, 167, 0.25);
+}
+
+.circle {
+    list-style-type: disc;
+  }

@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap");
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,10 +21,9 @@
   filter: blur(250px);
 }
 
-.CompanyCardBG{
-  fill: var(--fs-search-banner-blue, #DDF3FF);
+.CompanyCardBG {
+  fill: var(--fs-search-banner-blue, #ddf3ff);
 }
-
 
 .textGradient {
   background: linear-gradient(91deg, #0076ce 26.63%, #9400d3 65.81%);
@@ -35,12 +37,12 @@
   line-height: 80px;
 }
 
-.paraStyle{
-    color: #616161;
-font-feature-settings: 'clig' off, 'liga' off;
-font-family: Open Sans;
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; /* 150% */
+.paraStyle {
+  color: #616161;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Open Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px; /* 150% */
 }

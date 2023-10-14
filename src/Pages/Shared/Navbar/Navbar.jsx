@@ -126,12 +126,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end gap-4">
           <Link to="/">
-            <button className=" border border-[#0076CE] text-[#0076CE] py-[10px] px-[20px] rounded-lg">
+            <button className="btn border border-[#0076CE] text-[#0076CE] py-[10px] px-[20px] rounded-lg">
               Login
             </button>
           </Link>
           <Link to="/">
-            <button className="bg-[#0076CE] text-white py-[10px] px-[20px] rounded-lg">
+            <button className="btn bg-[#0076CE] text-white py-[10px] px-[20px] rounded-lg">
               Register
             </button>
           </Link>

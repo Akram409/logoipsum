@@ -2,11 +2,14 @@ import pic1 from "/public/picture-1.png";
 import pic2 from "/public/picture-2.png";
 import pic3 from "/public/picture-3.png";
 import "./style.css";
+
 const Banner = () => {
+
+
   return (
     <div>
-      <div className="absolute ms-32 me-10">
-        <div className="grid grid-cols-2 gap-16 ">
+      <div className="absolute ms-32 me-10 mt-[120px]">
+        <div className="grid grid-cols-2 gap-16">
           <div className="mt-11">
             <h1 className="text-[65px] font-bold text-black mb-4">
               Find <span className="textGradient">Partners</span> (CAs)
@@ -18,8 +21,13 @@ const Banner = () => {
               businesses seeking CA’s for compliance support
             </p>
             <div className="search flex justify-between items-center mt-[60px]">
-              <input type="text" placeholder="Search here" className="input w-full py-[35px]" />
-              <button className="bg-[#0076CE] text-white py-[27px] px-[66px] rounded-lg">
+              <input
+                type="text"
+                
+                placeholder="Search here"
+                className="input w-full py-[35px]"
+              />
+              <button  className="btn text-base  bg-[#0076CE] text-white rounded-lg h-[72px] w-1/4">
                 Search
               </button>
             </div>
