@@ -15,8 +15,8 @@ const Home = () => {
         <Banner />
       </div>
       <div>
-        <AccountentCard />
         <Company />
+        <AccountentCard />
         <Platform />
       </div>
     </div>

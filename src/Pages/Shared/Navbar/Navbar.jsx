@@ -5,7 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar">
+      <div className="navbar lg:px-32">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

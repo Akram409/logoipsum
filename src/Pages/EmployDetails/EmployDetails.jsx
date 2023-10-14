@@ -5,8 +5,29 @@ import Banner from "/public/detailsBanner.png";
 import Banner1 from "/public/detailsBanner-1.jpg";
 import Banner2 from "/public/detailsBanner-2.jpg";
 import Banner3 from "/public/detailsBanner-3.jpg";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const CompanyDetails = () => {
+const EmployDetails = () => {
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/details");
+        const datas = await response.json();
+        setAllData(datas.slice(0, 3));
+        const singleData = datas.find((item) => item.id === parseInt(id));
+        setData(singleData);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -19,31 +40,28 @@ const CompanyDetails = () => {
       <div className="grid grid-cols-2 gap-8 mb-[132px]">
         <div>
           <div>
-            <h1 className="text-[35px] font-bold mb-4">Michael Jackson</h1>
-            <p className="text-xl font-normal">
-              I am here to provide my expertise in accounting and finance, which
-              includes financial statements, economics, and auditing, all to
-              assist you effectively
-            </p>
+            <h1 className="text-[35px] font-bold mb-4">{data?.name}</h1>
+            <p className="text-xl font-normal">{data?.intro}</p>
             <div className="flex items-center gap-2 my-8">
               <AiFillStar color="#0076CE" size="1.5em" />
               <p>
-                <span className="text-[#0076CE] font-semibold">4.8</span> (89)
+                <span className="text-[#0076CE] font-semibold">
+                  {data?.rating}
+                </span>
+                ({data?.reviewCount})
               </p>
             </div>
-            <div className="card lg:w-[515px] detailBox1">
+            <div className="card w-full detailBox1">
               <div className="card-body">
                 <div className="flex justify-between items-center">
                   <h1 className="text-sm font-normal">
-                    Basic to complex tasks
+                    {data?.taskComplexity}
                   </h1>
-                  <h1 className="text-2xl font-bold">₹4,370</h1>
+                  <h1 className="text-2xl font-bold">{data?.price}</h1>
                 </div>
                 <div className="flex gap-1 items-center mt-8 mb-6">
                   <AiOutlineCalendar color="#0076CE" size="1.5em" />
-                  <p className="text-xl font-normal">
-                    Delivers the job within 2 days
-                  </p>
+                  <p className="text-xl font-normal">{data?.deliveryTime}</p>
                 </div>
                 <div className="flex justify-center gap-6">
                   <button className="btn bg-[#0076CE] text-white text-base ">
@@ -58,7 +76,7 @@ const CompanyDetails = () => {
             </div>
           </div>
           <div>
-            <div className="carouselBox border-2 w-[515px] mt-8 mb-7">
+            <div className="carouselBox border-2 w-full mt-8 mb-7">
               <div className=" px-8 pt-7 mb-7">
                 <div>
                   <Slider {...settings}>
@@ -67,12 +85,7 @@ const CompanyDetails = () => {
                         What people say?
                       </h1>
                       <p className="text-xl font-normal mb-[60px]">
-                        I cannot express enough gratitude for the support
-                        Micheal has provided in managing my personal finances.
-                        Their attention to detail and deep understanding of
-                        financial markets has ensured that my investments are in
-                        safe hands. I highly recommend their services to anyone
-                        seeking financial guidance.
+                        {data?.testimonial?.text}
                       </p>
                     </div>
                     <div>
@@ -131,30 +144,32 @@ const CompanyDetails = () => {
           </div>
           <div>
             <h1 className="text-[35px] font-bold mb-[22px]">
-              About Michael Jackson
+              About {data?.name}
             </h1>
             <div className="grid grid-cols-3 mb-[32px]">
               <div>
                 <p className="text-[#999] font-bold text-base">FROM</p>
-                <h1 className="text-xl font-normal">INDIA</h1>
+                <h1 className="text-xl font-normal">{data?.about?.from}</h1>
               </div>
               <div>
                 <p className="text-[#999] font-bold text-base">PARTNER SINCE</p>
-                <h1 className="text-xl font-normal">2011</h1>
+                <h1 className="text-xl font-normal">
+                  {data?.about?.partnerSince}
+                </h1>
               </div>
               <div>
                 <p className="text-[#999] font-bold text-base">
                   AVERAGE RESPONSE TIME
                 </p>
-                <h1 className="text-xl font-normal">30 minutes</h1>
+                <h1 className="text-xl font-normal">
+                  {data?.about?.averageResponseTime}
+                </h1>
               </div>
             </div>
             <div>
               <h1 className="text-[#999] font-bold text-base mb-2">ABOUT</h1>
               <p className="text-xl font-normal mb-8">
-                I am a Professional Charted Accountant here to offer
-                professional services of accounting and finance, financial
-                statements, Bookkeeping in affordable price.
+                {data?.about?.description}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-8">
@@ -163,15 +178,9 @@ const CompanyDetails = () => {
                   SERVICES I OFFER
                 </h1>
                 <ul className="circle text-lg font-normal ms-7">
-                  <li>Financial accounting</li>
-                  <li>Financial statements</li>
-                  <li>Bookkeeping</li>
-                  <li>Accounting and finance</li>
-                  <li>Corporate Finance</li>
-                  <li>Maintain Charts of Accounts</li>
-                  <li>Profit and loss statements</li>
-                  <li>Bank Reconciliation</li>
-                  <li>Balance Sheets</li>
+                  {data?.about?.services.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
               <div>
@@ -179,9 +188,9 @@ const CompanyDetails = () => {
                   WHY ME?
                 </h1>
                 <ul className="circle text-lg font-normal ms-7">
-                  <li>One-time delivery</li>
-                  <li>24/7 customer support</li>
-                  <li>Error-free documents</li>
+                  {data?.about?.benefits.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -191,85 +200,40 @@ const CompanyDetails = () => {
       <div>
         <h1 className="text-4xl font-bold mb-8">Recommended for you</h1>
         <div className="grid grid-cols-3 gap-8">
-          <div className="card bg-white shadow-2xl">
-            <figure>
-              <img src={Banner} alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title flex justify-between mb-[5px]">
-                <h1>Michael Jackson</h1>
-                <h1>₹4,370</h1>
-              </h2>
-              <p className="text-base font-normal">
-                I will do business evaluation and corporate services
-              </p>
-              <div className="flex items-center gap-2 mt-3 mb-8">
-                <AiFillStar color="#0076CE" size="1.5em" />
-                <p>
-                  <span className="text-[#0076CE] font-semibold">4.8</span> (89)
-                </p>
+          {allData.map((item, index) => (
+            <>
+              <div className="card bg-white shadow-2xl" key={index}>
+                <figure>
+                  <img src={item.image} alt="Shoes" className="w-full h-60 object-left-top"/>
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title flex justify-between mb-[5px]">
+                    <h1>{item.name}</h1>
+                    <h1>{item.price}</h1>
+                  </h2>
+                  <p className="text-base font-normal">
+                    {item.intro}
+                  </p>
+                  <div className="flex items-center gap-2 mt-3 mb-8">
+                    <AiFillStar color="#0076CE" size="1.5em" />
+                    <p>
+                      <span className="text-[#0076CE] font-semibold">{item.rating}</span>
+                      ({item.reviewCount})
+                    </p>
+                  </div>
+                  <div className="card-actions">
+                    <Link to={`/employDetails/${item.id}`}><button className="btn bg-[#0076CE] text-white text-base w-full lg:w-[355px]">
+                      View services
+                    </button></Link>
+                  </div>
+                </div>
               </div>
-              <div className="card-actions">
-                <button className="btn bg-[#0076CE] text-white text-base w-full">
-                  View services
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-white shadow-2xl">
-            <figure>
-              <img src={Banner} alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title flex justify-between mb-[5px]">
-                <h1>Stevie Wonder</h1>
-                <h1>₹4,370</h1>
-              </h2>
-              <p className="text-base font-normal">
-                I will do business evaluation and corporate services
-              </p>
-              <div className="flex items-center gap-2 mt-3 mb-8">
-                <AiFillStar color="#0076CE" size="1.5em" />
-                <p>
-                  <span className="text-[#0076CE] font-semibold">5.0</span> (62)
-                </p>
-              </div>
-              <div className="card-actions">
-                <button className="btn bg-[#0076CE] text-white text-base w-full">
-                  View services
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-white shadow-2xl">
-            <figure>
-              <img src={Banner} alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title flex justify-between mb-[5px]">
-                <h1>Ray Charles</h1>
-                <h1>₹2,586</h1>
-              </h2>
-              <p className="text-base font-normal">
-                I will do business evaluation and corporate services
-              </p>
-              <div className="flex items-center gap-2 mt-3 mb-8">
-                <AiFillStar color="#0076CE" size="1.5em" />
-                <p>
-                  <span className="text-[#0076CE] font-semibold">4.8</span> (89)
-                </p>
-              </div>
-              <div className="card-actions">
-                <button className="btn bg-[#0076CE] text-white text-base w-full">
-                  View services
-                </button>
-              </div>
-            </div>
-          </div>
+            </>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default CompanyDetails;
+export default EmployDetails;

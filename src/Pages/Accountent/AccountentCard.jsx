@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AccountentCard = () => {
   const [searching, setSearching] = useState();
@@ -29,14 +30,14 @@ const AccountentCard = () => {
     );
     setData(searchData);
   };
-  console.log(data);
+
   return (
-    <div className="mt-16">
+    <div className="mt-16 mb-32">
       <div className="join flex justify-center ">
         <input
           className="input input-bordered join-item"
           onChange={(e) => handleChange(e)}
-          placeholder="Search here"
+          placeholder="Search Candidate"
         />
         <button
           className="btn btn-info text-white font-bold join-item rounded-r-full"
@@ -49,12 +50,12 @@ const AccountentCard = () => {
         {data &&
           data.map((item) => (
             <>
-              <div className="card card-compact w-96 bg-base-100 shadow-2xl">
+              <div className="card card-compact w-96 bg-base-100 shadow-2xl mb-5">
                 <figure>
                   <img
                     src={item.image}
                     alt="Shoes"
-                    className="w-full h-60 object-fill"
+                    className="w-full h-60 object-left-top "
                   />
                 </figure>
                 <div className="card-body text-center">
@@ -62,10 +63,10 @@ const AccountentCard = () => {
                     {item.name}
                   </h2>
                   <p>{item.intro}</p>
-                  <div className="card-actions mt-4">
-                    <button className="btn btn-outline btn-info w-full">
+                  <div className="card-actions mt-4 w-full">
+                    <Link to={`/employDetails/${item.id}`}><button className="btn btn-outline btn-info w-[355px]">
                       Details
-                    </button>
+                    </button></Link>
                   </div>
                 </div>
               </div>
