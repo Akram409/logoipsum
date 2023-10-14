@@ -7,7 +7,7 @@ const Main = () => {
   const noHeaderFooter = location.pathname.includes('/employDetails');
   console.log(location.pathname)
   return (
-    <div className="container mx-auto">
+    <div className="">
       { noHeaderFooter && <Navbar />}
       <Outlet></Outlet>
       <Footer />

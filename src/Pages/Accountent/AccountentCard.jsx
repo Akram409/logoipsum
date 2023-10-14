@@ -46,11 +46,11 @@ const AccountentCard = () => {
           Search
         </button>
       </div>
-      <div className="grid grid-cols-3 mt-7 mx-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-7 lg:mx-32 mx-12 gap-5">
         {data &&
           data.map((item) => (
             <>
-              <div className="card card-compact w-96 bg-base-100 shadow-2xl mb-5">
+              <div className="card card-compact bg-base-100 shadow-2xl mb-5">
                 <figure>
                   <img
                     src={item.image}
@@ -63,8 +63,8 @@ const AccountentCard = () => {
                     {item.name}
                   </h2>
                   <p>{item.intro}</p>
-                  <div className="card-actions mt-4 w-full">
-                    <Link to={`/employDetails/${item.id}`}><button className="btn btn-outline btn-info w-[355px]">
+                  <div className="card-actions mt-4 w-full justify-end">
+                    <Link to={`/employDetails/${item.id}`}><button className="btn btn-outline btn-info">
                       Details
                     </button></Link>
                   </div>

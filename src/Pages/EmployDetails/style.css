@@ -13,3 +13,21 @@ box-shadow: 2px 4px 15px 0px rgba(133, 133, 167, 0.25);
 .circle {
     list-style-type: disc;
   }
+
+.platformChat{
+  border-radius: 15px 15px 3px 15px;
+background: var(--fs-search-banner-purple, #EFD9F9);
+padding: 8px 16px;
+text-align: right;
+width: fit-content;
+}
+.platformCha1t{
+  border-radius: 15px 15px 15px 3px;
+  background: var(--fs-search-banner-blue, #DDF3FF);
+padding: 8px 16px;
+text-align: right;
+width: fit-content;
+}
+.paraBox{
+  text-align: -webkit-right;
+}

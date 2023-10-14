@@ -26,7 +26,7 @@ const EmployDetails = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   const settings = {
     dots: true,
@@ -36,8 +36,8 @@ const EmployDetails = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="mx-32 mt-20 mb-[132px]">
-      <div className="grid grid-cols-2 gap-8 mb-[132px]">
+    <div className="lg:mx-32 mx-12 mt-20 mb-[132px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-[132px]">
         <div>
           <div>
             <h1 className="text-[35px] font-bold mb-4">{data?.name}</h1>
@@ -53,18 +53,18 @@ const EmployDetails = () => {
             </div>
             <div className="card w-full detailBox1">
               <div className="card-body">
-                <div className="flex justify-between items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2  gap-4">
                   <h1 className="text-sm font-normal">
                     {data?.taskComplexity}
                   </h1>
-                  <h1 className="text-2xl font-bold">{data?.price}</h1>
+                  <h1 className="text-2xl font-bold lg:text-end">{data?.price}</h1>
                 </div>
                 <div className="flex gap-1 items-center mt-8 mb-6">
                   <AiOutlineCalendar color="#0076CE" size="1.5em" />
                   <p className="text-xl font-normal">{data?.deliveryTime}</p>
                 </div>
-                <div className="flex justify-center gap-6">
-                  <button className="btn bg-[#0076CE] text-white text-base ">
+                <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6 w-full">
+                  <button className="btn bg-[#0076CE] text-white text-base mb-2">
                     Request Proposal
                   </button>
 
@@ -76,7 +76,7 @@ const EmployDetails = () => {
             </div>
           </div>
           <div>
-            <div className="carouselBox border-2 w-full mt-8 mb-7">
+            <div className="carouselBox border-2 w-full mt-8 lg:mb-7">
               <div className=" px-8 pt-7 mb-7">
                 <div>
                   <Slider {...settings}>
@@ -84,7 +84,7 @@ const EmployDetails = () => {
                       <h1 className="text-[35px] font-bold mb-4">
                         What people say?
                       </h1>
-                      <p className="text-xl font-normal mb-[60px]">
+                      <p className="text-xl font-normal lg:mb-[60px]">
                         {data?.testimonial?.text}
                       </p>
                     </div>
@@ -92,7 +92,7 @@ const EmployDetails = () => {
                       <h1 className="text-[35px] font-bold mb-4">
                         What people say?
                       </h1>
-                      <p className="text-xl font-normal mb-[60px]">
+                      <p className="text-xl font-normal lg:mb-[60px]">
                         I cannot express enough gratitude for the support
                         Micheal has provided in managing my personal finances.
                         Their attention to detail and deep understanding of
@@ -199,32 +199,38 @@ const EmployDetails = () => {
       </div>
       <div>
         <h1 className="text-4xl font-bold mb-8">Recommended for you</h1>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {allData.map((item, index) => (
             <>
               <div className="card bg-white shadow-2xl" key={index}>
                 <figure>
-                  <img src={item.image} alt="Shoes" className="w-full h-60 object-left-top"/>
+                  <img
+                    src={item.image}
+                    alt="Shoes"
+                    className="w-full h-60 object-left-top"
+                  />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title flex justify-between mb-[5px]">
                     <h1>{item.name}</h1>
                     <h1>{item.price}</h1>
                   </h2>
-                  <p className="text-base font-normal">
-                    {item.intro}
-                  </p>
+                  <p className="text-base font-normal">{item.intro}</p>
                   <div className="flex items-center gap-2 mt-3 mb-8">
                     <AiFillStar color="#0076CE" size="1.5em" />
                     <p>
-                      <span className="text-[#0076CE] font-semibold">{item.rating}</span>
+                      <span className="text-[#0076CE] font-semibold">
+                        {item.rating}
+                      </span>
                       ({item.reviewCount})
                     </p>
                   </div>
-                  <div className="card-actions">
-                    <Link to={`/employDetails/${item.id}`}><button className="btn bg-[#0076CE] text-white text-base w-full lg:w-[355px]">
-                      View services
-                    </button></Link>
+                  <div className="">
+                    <Link to={`/employDetails/${item.id}`}>
+                      <button className="btn bg-[#0076CE] text-white text-base w-full">
+                        View services
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -5,7 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar lg:px-32">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -47,7 +47,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="flex items-center gap-12">
+          <div className="flex items-center lg:gap-12">
             <div>
               <Link to="/">
                 <img src={logo} alt="" className="w-36 h-16" />
